@@ -8,12 +8,12 @@ This table maps every Marking Criteria across all four assessment exercises to i
 
 | Technical Competency / Knowledge | Grade Level | Target Requirement / Criteria Summary | Target Deliverable |
 | :--- | :--- | :--- | :--- |
-| **TC2: Distributed Network Design & Build** | **Pass** | Assemble devices, configure static routes, and implement dynamic routing (OSPF) across multiple subnets[cite: 1]. | Deliverable A |
-| | **Merit** | Evaluate and document evidence of considering more than one network topology design option[cite: 1]. | Deliverable A |
-| | **Distinction** | Successfully diagnose and troubleshoot complex network implementation problems (e.g., asymmetric routing/OSPF adjacency failures)[cite: 1]. | Deliverable A |
-| **TC5: Hardening Digital Systems** | **Pass** | Build, provision, test, and debug a digital system (Hyper-V VM) according to a security policy specification[cite: 1]. | Deliverable B |
-| **TC8: Web Application Security** | **Pass** | Build software allowing employee login/file upload and analyze it for potential security vulnerabilities[cite: 1]. | Deliverable C |
-| **TC13: Security Technology Components** | **Pass** | Configure security components (IDPS/Firewalls), implement cryptographic protocols (TLS), and produce a key management plan[cite: 1]. | Deliverable D |
+| **TC2: Distributed Network Design & Build** | **Pass** | Assemble devices, configure static routes, and implement dynamic routing (OSPF) across multiple subnets. | Deliverable A |
+| | **Merit** | Evaluate and document evidence of considering more than one network topology design option. | Deliverable A |
+| | **Distinction** | Successfully diagnose and troubleshoot complex network implementation problems (e.g., asymmetric routing/OSPF adjacency failures). | Deliverable A |
+| **TC5: Hardening Digital Systems** | **Pass** | Build, provision, test, and debug a digital system (Hyper-V VM) according to a security policy specification. | Deliverable B |
+| **TC8: Web Application Security** | **Pass** | Build software allowing employee login/file upload and analyze it for potential security vulnerabilities. | Deliverable C |
+| **TC13: Security Technology Components** | **Pass** | Configure security components (IDPS/Firewalls), implement cryptographic protocols (TLS), and produce a key management plan. | Deliverable D |
 
 ---
 
@@ -52,9 +52,9 @@ This table maps every Marking Criteria across all four assessment exercises to i
 
 | Technical Competency / Knowledge | Grade Level | Target Requirement / Criteria Summary | Target Deliverable |
 | :--- | :--- | :--- | :--- |
-| **TC6 / TKU6: High/Low Languages & Debugging** | **Pass** | Write, test, and debug high-level (C/C++), scripting (Python), and assembler code; map C syntax to assembly; debug serial (GDB/Valgrind) and parallel (Intel Inspector) programs[cite: 3]. | Deliverable A |
-| **TC7 / TKU7: Algorithm Design & Analysis** | **Pass** | Design defensive algorithms, differentiate normal vs. defensive programming, adopt documentation/testing standards, and analyze trade-offs/downsides[cite: 3]. | Deliverable B |
-| **TC10 / TKU10: Secure Programming & Principles** | **Pass** | Enforce naming conventions, ban dangerous constructs, utilize guard clauses and assertions, and evaluate strongly typed languages[cite: 3]. | Deliverable C |
-| | **Merit** | Identify subtle vulnerabilities within a software codebase (e.g., integer overflows, race conditions)[cite: 3]. | Deliverable C |
-| | **Distinction** | Develop and implement comprehensive code-level mitigations for identified subtle vulnerabilities[cite: 3]. | Deliverable C |
-| **TC11 / TKU11: Systems Engineering & SDLC** | **Pass** | Differentiate offensive vs. defensive programming, determine software attack surfaces, assume an environment of failure, and audit/mitigate external dependency threats[cite: 3]. | Deliverable D |
+| **TC6 / TKU6: High/Low Languages & Debugging** | **Pass** | Write, test, and debug high-level (C/C++), scripting (Python), and assembler code; map C syntax to assembly; debug serial (GDB/Valgrind) and parallel (Intel Inspector) programs. | Deliverable A |
+| **TC7 / TKU7: Algorithm Design & Analysis** | **Pass** | Design defensive algorithms, differentiate normal vs. defensive programming, adopt documentation/testing standards, and analyze trade-offs/downsides. | Deliverable B |
+| **TC10 / TKU10: Secure Programming & Principles** | **Pass** | Enforce naming conventions, ban dangerous constructs, utilize guard clauses and assertions, and evaluate strongly typed languages. | Deliverable C |
+| | **Merit** | Identify subtle vulnerabilities within a software codebase (e.g., integer overflows, race conditions). | Deliverable C |
+| | **Distinction** | Develop and implement comprehensive code-level mitigations for identified subtle vulnerabilities. | Deliverable C |
+| **TC11 / TKU11: Systems Engineering & SDLC** | **Pass** | Differentiate offensive vs. defensive programming, determine software attack surfaces, assume an environment of failure, and audit/mitigate external dependency threats. | Deliverable D |
