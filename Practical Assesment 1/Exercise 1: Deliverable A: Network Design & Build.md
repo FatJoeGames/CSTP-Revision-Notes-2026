@@ -8,7 +8,7 @@
 To achieve a Merit for Technical Competency 2, you must provide evidence that you considered more than one design option. 
 *   **Action:** Before touching Packet Tracer, draft two brief network topologies. 
 *   **Option 1 (The Reject):** A flat "Hub and Spoke" network with a single subnet for all servers and clients. Explain that while simple, it fails to provide necessary security isolation for the web application.
-*   **Option 2 (The Chosen Design):** A segmented architecture featuring a WAN edge, an internal Corporate LAN, and a dedicated DMZ for the file-upload server. Justify this choice as it limits the blast radius if the web server is compromised, aligning with defense-in-depth principles[cite: 1, 3].
+*   **Option 2 (The Chosen Design):** A segmented architecture featuring a WAN edge, an internal Corporate LAN, and a dedicated DMZ for the file-upload server. Justify this choice as it limits the blast radius if the web server is compromised, aligning with defense-in-depth principles.
 
 #### Phase 2: Build & Configure (Targeting the "Pass" Grade)
 You need to assemble the hubs, switches, routers, and user devices to meet the design requirements.
