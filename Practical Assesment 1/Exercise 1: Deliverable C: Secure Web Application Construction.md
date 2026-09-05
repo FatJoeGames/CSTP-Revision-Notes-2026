@@ -34,47 +34,6 @@ CREATE TABLE files (
 Develop the core features according to the specification: secure login, file upload, and file management displaying file name, size, and upload date.
 *   **Action:** Write the PHP scripts implementing strict input validation, parameterized queries to prevent SQL injection, and safe filename handling to prevent directory traversal.
 
-**PHP Implementation Snippet (`login.php` & `upload.php`):**
-```php
-<?php
-session_start();
-$pdo = new PDO("mysql:host=127.0.0.1;dbname=secure_app", "root", "");
-
-// 1. Secure Login Logic (Mitigates SQL Injection via Prepared Statements)
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
-    $stmt = $pdo->prepare('SELECT id, password_hash FROM users WHERE email = ?');
-    $stmt->execute([$_POST['email']]);
-    $user = $stmt->fetch();
-    
-    if ($user && password_verify($_POST['password'], $user['password_hash'])) {
-        $_SESSION['user_id'] = $user['id'];
-    }
-}
-
-// 2. Secure File Upload Logic (Mitigates Path Traversal & Buffer Overflows)
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
-    if (!isset($_SESSION['user_id'])) {
-        die("Unauthorized access.");
-    }
-    
-    $allowed_extensions = ['txt', 'pdf', 'png', 'jpg'];
-    $filename = basename($_FILES['file']['name']);
-    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    
-    // Validate extension and restrict size (< 5MB)
-    if (in_array($ext, $allowed_extensions) && $_FILES['file']['size'] < 5000000) {
-        $safe_name = preg_replace("/[^a-zA-Z0-9.-]/", "_", $filename);
-        $dest = "C:/xampp/htdocs/uploads/" . uniqid() . "_" . $safe_name;
-        
-        if (move_uploaded_file($_FILES['file']['tmp_name'], $dest)) {
-            $stmt = $pdo->prepare('INSERT INTO files (user_id, file_name, file_size, upload_date, storage_path) VALUES (?, ?, ?, NOW(), ?)');
-            $stmt->execute([$_SESSION['user_id'], $safe_name, $_FILES['file']['size'], $dest]);
-        }
-    }
-}
-?>
-```
-
 #### Phase 3: Exploit Analysis & Testing
 Identify and assess potential security vulnerabilities or exploits in the software (such as SQL injection, brute force, or buffer overflows).
 *   **Action:** Spin up your Kali Linux VM and use Burp Suite to intercept HTTP requests, testing session token behavior and form inputs. Run SQLMAP against the login parameters to empirically prove the application is resilient against database extraction attacks.
