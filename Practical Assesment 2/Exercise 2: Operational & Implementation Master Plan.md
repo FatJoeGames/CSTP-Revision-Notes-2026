@@ -42,32 +42,6 @@ The objective of this 12-hour practical test is to execute secure testing routin
   2. Write and execute a custom Python script (Distinction requirement) to extract static indicators of compromise (IoCs), imported DLLs, and file entropy to detect packing or anti-reverse engineering techniques.
   3. Upload the sample to Any.run and conduct dynamic analysis.
   4. Observe the interactive report to determine the malware's type and purpose (e.g., ransomware, C2 beaconing) and formulate specific mitigation actions.
-* **Code, Scripts & Configurations:**
-  ```python
-  # Custom Static Analysis Script (Fulfills TC9 Distinction Requirement)
-  import pefile
-  import hashlib
-
-  def analyze_malware(filepath):
-      with open(filepath, "rb") as f:
-          file_data = f.read()
-          print(f"SHA-256: {hashlib.sha256(file_data).hexdigest()}")
-      
-      try:
-          pe = pefile.PE(filepath)
-          print("\n[+] Imported DLLs & Functions (Checking for Anti-Reversing):")
-          for entry in pe.DIRECTORY_ENTRY_IMPORT:
-              print(f"[-] {entry.dll.decode('utf-8')}")
-              for imp in entry.imports:
-                  if imp.name:
-                      # Flag common anti-debugging/obfuscation APIs
-                      if imp.name.decode('utf-8') in ['IsDebuggerPresent', 'VirtualAlloc']:
-                          print(f"  [!] SUSPICIOUS API FOUND: {imp.name.decode('utf-8')}")
-      except Exception as e:
-          print(f"Error parsing PE (Possible heavy obfuscation/packing): {e}")
-
-  analyze_malware("virusshare_sample.exe")
-  ```
 * **Evidence & Artifact Collection:** Custom Python script source code, script execution terminal output, Any.run interactive process tree screenshot, and behavioral flags export detailing the mitigation plan.
 
 ---
