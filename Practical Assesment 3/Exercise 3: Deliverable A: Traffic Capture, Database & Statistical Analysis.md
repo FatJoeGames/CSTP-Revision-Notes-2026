@@ -15,28 +15,6 @@ You must design a database of relevant information and use a declarative query l
 *   **Action:** Set up a relational database and define a schema that accurately represents the network traffic data.
 *   **Execution:** Import the CSV data into the database. Write SQL queries to extract specific subsets of data (e.g., filtering out standard internal broadcast traffic) to feed into your statistical tool.
 
-**SQL Database Schema & Elicitation Snippet:**
-```sql
--- 1. Design and set up the database schema
-CREATE TABLE network_traffic (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    timestamp DATETIME,
-    source_ip TEXT,
-    dest_ip TEXT,
-    dest_port INTEGER,
-    protocol TEXT,
-    bytes_transferred INTEGER
-);
-
--- 2. Declarative query to elicit information (TC3 Pass Requirement)
--- Extracting high-volume traffic targeting critical web server ports
-SELECT source_ip, dest_port, SUM(bytes_transferred) as total_bytes
-FROM network_traffic
-WHERE dest_port IN (80, 443, 22)
-GROUP BY source_ip, dest_port
-ORDER BY total_bytes DESC;
-```
-
 #### Phase 3: Data Cleaning & Pre-processing (Targeting TC14)
 Import the data into a statistical analysis tool (Python) and perform data cleaning and pre-processing to remove any errors or inconsistencies.
 *   **Action:** Write a Python script using the Pandas library to connect to your database, load the query results into a DataFrame, and handle missing or malformed data.
@@ -47,38 +25,6 @@ Use statistical techniques such as clustering analysis, classification analysis,
 *   **Action:** Implement a machine learning algorithm (e.g., K-Means for clustering or Isolation Forest for outlier detection) using Scikit-learn in Python. 
 *   **Execution:** Train the model on the pre-processed data to flag traffic that deviates from the baseline. Generate charts and graphs to communicate these findings clearly.
 
-**Python Statistical Analysis & Visualization Snippet:**
-```python
-import sqlite3
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-
-# 1. Connect and Load Data
-conn = sqlite3.connect('traffic_analysis.db')
-df = pd.read_sql_query("SELECT dest_port, bytes_transferred FROM network_traffic WHERE dest_port IS NOT NULL", conn)
-
-# 2. Data Pre-processing
-# Scale the data so large byte counts don't skew the clustering algorithm
-scaler = StandardScaler()
-scaled_data = scaler.fit_transform(df)
-
-# 3. Apply Statistical Techniques (Clustering Analysis)
-# Group traffic into 3 clusters: Normal, High-Volume, and Anomalous
-kmeans = KMeans(n_clusters=3, random_state=42)
-df['cluster'] = kmeans.fit_predict(scaled_data)
-
-# 4. Data Visualization
-plt.figure(figsize=(10, 6))
-colors = {0: 'blue', 1: 'green', 2: 'red'} # Red denotes the anomaly cluster
-plt.scatter(df['dest_port'], df['bytes_transferred'], c=df['cluster'].map(colors), alpha=0.6)
-plt.title('Network Traffic Clustering: Anomaly Detection')
-plt.xlabel('Destination Port')
-plt.ylabel('Bytes Transferred')
-plt.grid(True)
-plt.savefig('traffic_clusters.png')
-```
 
 #### Phase 5: Evidence & Artifact Collection
 *   **Action:** Compile the evidence to prove competency across the KSBs.
