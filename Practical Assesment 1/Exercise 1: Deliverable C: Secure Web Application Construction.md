@@ -46,3 +46,16 @@ sqlmap -u "http://<windows-vm-ip>/secure_app/login.php" --data="email=test@test.
 
 #### Phase 4: Evidence & Artifact Collection
 *   **Action:** Compile source code snippets highlighting secure coding constructs, capture screenshots of the working user interface showing file size, name, and upload date, and document the SQLMAP output log confirming that parameterization successfully blocked injection payloads.
+
+
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/zoneup.key -out /etc/ssl/certs/zoneup.crt
+
+sudo a2enmod ssl
+
+Edit - /etc/apache2/sites-available/default-ssl.conf
+SSLCertificateFile /etc/ssl/certs/zoneup.crt
+SSLCertificateKeyFile /etc/ssl/private/zoneup.key
+
+sudo a2ensite default-ssl.conf
+
+sudo systemctl restart apache2
