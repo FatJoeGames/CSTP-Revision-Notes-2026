@@ -50,3 +50,51 @@ Develop and implement a formal key management plan covering the lifecycle of the
 
 #### Phase 4: Evidence & Artifact Collection
 *   **Action:** Capture screenshots of the browser showing a valid secure padlock connection (HTTPS)[cite: 1], collect Snort log outputs showing active rule triggers during security testing, and compile the final written Key Management Plan document for inclusion in your submission evidence.
+
+
+Policy:
+1. Purpose and Scope
+
+    Purpose: To define the security baseline, protect corporate information assets, ensure business continuity, and enforce legal compliance across all Home Tech operating environments.
+
+    Scope: This policy applies to all Home Tech employees, contractors, third-party vendors, and all digital systems, including the central administrative network, distribution center management systems, retail store point-of-sale (POS) terminals, and the remote employee web portal.
+
+2. Regulatory and Legal Compliance (TC26 Alignment)
+
+Home Tech operations strictly comply with the following legislative frameworks under English jurisdiction:
+
+    UK GDPR & Data Protection Act 2018: Mandates the lawful, transparent, and secure processing of personal and sensitive data (e.g., employee credentials and operational records). All data stored on internal databases or uploaded via corporate applications must be encrypted at rest and in transit (utilising TLS protocols).
+
+    Computer Misuse Act 1990: Prohibits unauthorized access to computer material, unauthorized modification of computer data, and impairment of system operation. All internal testing must be authorized and restricted to designated testing environments.
+
+3. Access Control and Authentication Policy
+
+    Principle of Least Privilege: Employees at distribution centers and retail stores shall only be granted access to the specific network segments, applications, and files necessary to perform their job roles.
+
+    Authentication Standards:
+
+        Access to corporate systems and the web portal requires unique user credentials (email and a complex password enforcing minimum length and complexity rules).
+
+        Session management must utilize secure tokens with automatic timeouts to prevent session hijacking.
+
+    Prohibited Practices: Sharing account credentials or using default system accounts is strictly prohibited.
+
+4. Network Security and Multi-Site Segmentation
+
+    Site Isolation: Distribution centers and retail stores must operate on segmented subnets, isolated from the central corporate network via firewalls and Access Control Lists (ACLs).
+
+    Payment & Critical Systems Protection: Payment terminals and sensitive inventory databases must be heavily restricted, blocking unauthorized inter-VLAN communication to minimize the lateral movement of threats.
+
+    Remote Access: Any external interaction with Home Tech infrastructure must occur over encrypted secure channels (e.g., HTTPS/TLS).
+
+5. Software Development and Data Handling Policy
+
+    Secure Coding: Software developed for Home Tech (such as internal web applications) must follow defensive programming principles, including input validation, parameterized queries (PDO) to prevent SQL injection, and output encoding to prevent Cross-Site Scripting (XSS).
+
+    File Management: Files uploaded by employees must undergo strict type verification and be stored using randomized file identifiers to prevent directory traversal and arbitrary code execution vulnerabilities.
+
+6. Incident Reporting and Enforcement
+
+    Breach Reporting: Any suspected security breach, unauthorized access attempt, or data leak must be reported immediately to the IT Security team.
+
+    Disciplinary Action: Failure to comply with this policy may result in disciplinary action up to and including termination of employment, alongside potential legal prosecution under the Computer Misuse Act 1990.
