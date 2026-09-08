@@ -52,7 +52,7 @@ Develop and implement a formal key management plan covering the lifecycle of the
 *   **Action:** Capture screenshots of the browser showing a valid secure padlock connection (HTTPS)[cite: 1], collect Snort log outputs showing active rule triggers during security testing, and compile the final written Key Management Plan document for inclusion in your submission evidence.
 
 
-Policy:
+Info Policy:
 1. Purpose and Scope
 
     Purpose: To define the security baseline, protect corporate information assets, ensure business continuity, and enforce legal compliance across all Home Tech operating environments.
@@ -98,3 +98,27 @@ Home Tech operations strictly comply with the following legislative frameworks u
     Breach Reporting: Any suspected security breach, unauthorized access attempt, or data leak must be reported immediately to the IT Security team.
 
     Disciplinary Action: Failure to comply with this policy may result in disciplinary action up to and including termination of employment, alongside potential legal prosecution under the Computer Misuse Act 1990.
+
+
+Crypto:
+
+This appendix provides the technical evidence, configuration logs, and lifecycle management plan associated with the deployment of cryptographic controls for the Home Tech secure web portal, fulfilling requirements under Technical Competency 18 (TC18) and Technical Knowledge and Understanding 18 (TKU18).  1. OpenSSL Certificate Generation & Cryptographic ParametersTo protect data in transit and establish secure communications across the web portal, a self-signed RSA x509 digital certificate was generated using the OpenSSL command-line toolkit.  Execution Command Log:Bashsudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+-keyout /etc/ssl/private/zoneup.key \
+-out /etc/ssl/certs/zoneup.crt \
+-subj "/C=GB/ST=East Yorkshire/L=Hull/O=Home Tech/CN=portal.hometech.local"
+Technical Parameter Justification:Algorithm: RSA with a 2048-bit modulus length was selected to balance strong cryptographic security with computational efficiency, aligning with current industry baselines.Validity Period: Configured for 365 days to align with internal operational rotation schedules.Entropy Source: Leveraged underlying Linux kernel entropy pools (/dev/urandom) during private key generation to ensure adequate unpredictability.2. Apache TLS VirtualHost ConfigurationThe generated keys and certificates were integrated into the Apache web server configuration to enforce secure HTTPS transport and deprecate unencrypted HTTP connections.Configuration Snippet (/etc/apache2/sites-available/default-ssl.conf):Apache<VirtualHost *:443>
+    ServerName portal.hometech.local
+    DocumentRoot /var/www/html
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/zoneup.crt
+    SSLCertificateKeyFile /etc/ssl/private/zoneup.key
+
+    # Enforce modern secure protocols and ciphers
+    SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1 +TLSv1.2 +TLSv1.3
+    SSLCipherSuite HIGH:!aNULL:!MD5
+
+    ErrorLog ${APACHE_LOG_DIR}/ssl_error.log
+    CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+</VirtualHost>
+3. Home Tech Key Management Plan (Lifecycle & Governance)To satisfy the key management plan requirement for enterprise deployment, the following governance lifecycle is established:Lifecycle StageOperational Procedure & Security Control1. GenerationCryptographic keys generated on isolated administrative systems using cryptographically secure pseudo-random number generators (CSPRNG) with verified entropy.  2. StoragePrivate keys (.key) are stored strictly within restricted server directories (/etc/ssl/private/) with file permissions locked down to root:root (chmod 600), preventing unauthorized local read access.3. UsageKeys are accessed exclusively by the Apache web service daemon (www-data) during TLS handshake initialization and session establishment.  4. Rotation & RevocationCertificates are scheduled for mandatory annual renewal (365-day lifecycle). In the event of a suspected compromise, keys are immediately revoked, regenerated via OpenSSL, and redeployed.
