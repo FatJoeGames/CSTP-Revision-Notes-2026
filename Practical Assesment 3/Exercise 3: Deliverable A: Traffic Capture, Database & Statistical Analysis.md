@@ -1,36 +1,56 @@
-### Deliverable A: Traffic Capture, Database & Statistical Analysis
+# Exercise 3: Deliverable A: Traffic Capture, Database & Statistical Analysis
+**Target Competencies:** TC3, TKU3, TC22, TKU22
+**Grading Target:** Pass (Maximum achievable for these specific competencies)
 
-**The Goal:** Collect network traffic data, design and populate a database, and apply statistical techniques (clustering, classification, outlier detection) to identify anomalies and vulnerabilities.
+---
 
-**Required Tools:** Wireshark, SQLite (or MySQL/PostgreSQL), Python (Pandas, Scikit-learn, Matplotlib).
+## 1. Network Monitoring, PCAP & Anomaly Detection (TC22, TKU22)
+*Goal: Demonstrate the ability to inspect network data, recognize anomalies, and justify breach conclusions using evidence.*
 
-#### Phase 1: Traffic Capture & Big Data Architecture (Targeting TC3 & TKU3)
-You must capture real-time network traffic from the devices you designed in the previous exercises and understand the underlying data architectures.
-*   **Action:** Run Wireshark on your network interfaces (e.g., mirroring a port on your virtual switch or monitoring the DMZ edge).
-*   **Execution:** Capture a substantial PCAP file containing normal traffic mixed with simulated anomalous traffic (e.g., an Nmap scan or large file exfiltration). Export this capture to a CSV format for ingestion.
-*   **Big Data Vulnerability Identification:** To meet the TC3 requirement of identifying vulnerabilities in big data architectures, document the inherent risks of storing large PCAP datasets. Explicitly mention vulnerabilities such as unencrypted data-at-rest in Hadoop clusters, weak access controls on data lakes, and the risk of data poisoning.
+### 1.1 Network Data & Protocol Inspection
+*   **Packet Inspection:** Analyze observed network data structures (PCAPs) to identify anomalies. 
+*   **Protocol Behavior:** Detail how specific attack techniques manifest in network monitoring tools and logging systems. *(Provide an example of how inspecting protocol behaviors—e.g., malformed HTTP headers or unexpected DNS tunneling—reveals the likely means of an attack.)*
+*   **Impact Characterization:** Characterize the identified anomaly strictly in terms of its potential business and operational impact on the organization.
 
-#### Phase 2: Database Design & Querying (Targeting TC3)
-You must design a database of relevant information and use a declarative query language (SQL) to elicit information from it.
-*   **Action:** Set up a relational database and define a schema that accurately represents the network traffic data.
-*   **Execution:** Import the CSV data into the database. Write SQL queries to extract specific subsets of data (e.g., filtering out standard internal broadcast traffic) to feed into your statistical tool.
+### 1.2 SIEM Integration & Multi-Source Correlation
+*   **Data Correlation:** Integrate and correlate heterogeneous information from multiple distinct sources to form an evidence-based judgment of a network security breach.
+*   **Required Log Sources:** Explicitly mention combining:
+    *   Network monitoring tools / PCAPs.
+    *   Secure Information and Event Management (SIEM) tools.
+    *   Access control systems.
+    *   **CRITICAL REQUIREMENT:** You must include *physical security systems* (e.g., CCTV logs, badge swipes) in your correlation to satisfy the standard.
+*   **Threat Intelligence Comparison:** Compare the correlated log data against known threat and vulnerability data (e.g., MITRE ATT&CK, CVE databases) to justify your breach conclusion.
 
-#### Phase 3: Data Cleaning & Pre-processing (Targeting TC14)
-Import the data into a statistical analysis tool (Python) and perform data cleaning and pre-processing to remove any errors or inconsistencies.
-*   **Action:** Write a Python script using the Pandas library to connect to your database, load the query results into a DataFrame, and handle missing or malformed data.
-*   **Execution:** Drop null values, normalize IP addresses, and ensure byte counts are numerical to prepare the dataset for machine learning algorithms.
+### 1.3 Detection Methodologies (The "Relative Merits" Requirement)
+*   **Manual vs. Automated:** Discuss the relative merits of manual log analysis versus automated SIEM correlation. 
+*   **Signature vs. Algorithmic:** Compare the relative merits of *signature-based* anomaly detection (matching known IOCs/hashes) versus *algorithmic* anomaly detection (machine learning baselines identifying deviations).
 
-#### Phase 4: Statistical Analysis & Visualization (Targeting TC3 & TKU3)
-Use statistical techniques such as clustering analysis, classification analysis, and outlier detection to identify any anomalies in the network traffic, and visualize the findings.
-*   **Action:** Implement a machine learning algorithm (e.g., K-Means for clustering or Isolation Forest for outlier detection) using Scikit-learn in Python. 
-*   **Execution:** Train the model on the pre-processed data to flag traffic that deviates from the baseline. Generate charts and graphs to communicate these findings clearly.
+---
 
+## 2. Database Design & Information Management (TC3, TKU3)
+*Goal: Prove knowledge of database mechanics, query languages, and data structure theory.*
 
-#### Phase 5: Evidence & Artifact Collection
-*   **Action:** Compile the evidence to prove competency across the KSBs.
-*   **Collection Requirements:**
-    1. A screenshot of the raw Wireshark capture running in real-time.
-    2. The SQL script showing database creation and the declarative `SELECT` queries.
-    3. The full Python script demonstrating data cleaning, clustering, and plotting.
-    4. The exported `traffic_clusters.png` graph, paired with a brief paragraph explaining how the visual data proves a network anomaly (e.g., identifying a red cluster of massive data transfer over port 443 indicating exfiltration).
-    5. A brief summary documenting the vulnerabilities in big data architectures used for storing these logs.
+### 2.1 Database Architecture & DBMS Functions
+*   **Database Setup:** Design and set up a database to hold relevant security information.
+*   **Core Mechanics:** Explain the components of database systems and the design of core DBMS functions, specifically focusing on *query mechanisms* and *access methods*.
+*   **Information Management Concepts:** Detail the concepts of information capture, representation, storage, and retrieval. Explain how data is searched, retrieved, linked, and navigated.
+
+### 2.2 Declarative Query Language (SQL)
+*   **Query Execution:** You must explicitly demonstrate using a declarative query language (e.g., SQL) to elicit specific information from your database. *(Draft out 2-3 complex SQL queries here, such as `SELECT` statements with `JOIN` or `GROUP BY` clauses, to show you are eliciting actionable security analytics).*
+
+### 2.3 Graph Theory 
+*   **Graph Theory Application:** Briefly explain how *Graph Theory* applies to information management and security analytics (e.g., using nodes and edges to map relationships between compromised IP addresses, user accounts, and physical badge swipes).
+
+---
+
+## 3. Big Data Concepts & Statistical Analytics (TC3, TKU3)
+*Goal: Apply math and statistics to massive datasets and evaluate Big Data architecture vulnerabilities.*
+
+### 3.1 Statistical Security Analytics
+*   **Trend & Anomaly Determination:** Apply statistical techniques (e.g., standard deviation, mean baseline comparison, or time-series analysis) to large heterogeneous data sets to determine trends or anomalies in support of cyber security incident analysis. 
+*   **Tooling:** Identify the tools and techniques used for analyzing these large heterogeneous data sets.
+
+### 3.2 Big Data Architectures (Hadoop)
+*   **Benefits & Limitations:** Analyze the core benefits and limitations of 'big data' approaches. 
+*   **Architecture Components:** Describe the components and architectures employed in systems for big data. **CRITICAL:** You must explicitly mention and describe a *Hadoop cluster* (or equivalent distributed file system/MapReduce architecture).
+*   **Vulnerability Identification:** Identify specific vulnerabilities inherent in big data architectures (e.g., lack of inherent encryption in Hadoop data nodes, or weak authentication mechanisms in distributed clusters).
