@@ -1,39 +1,81 @@
-# Written Report & Assessment Breakdown
-
-### Part A: Technical Execution ("What I Did")
-* **Word Count:** Unlimited.
-* **Execution Strategy & Breakdown:** 
-  * Document the complete data pipeline: Provide screenshots of Wireshark capturing traffic, the SQL database schema, and the raw query outputs proving you used a declarative language (TC3 Pass).
-  * Embed the Python code and the resulting data visualization charts, proving you applied statistical techniques to large datasets to identify vulnerabilities (TC3 Pass).
-  * Detail the exact steps taken to integrate and correlate information from the log files to form an evidence-based judgment that the anomaly represents a breach (TC22 Pass).
-
-### Part B: Reflective & Justification Analysis ("Why I Did It")
-* **Word Count:** Target 1,000 ± 100 words.
-* **Sectional Allocation & Strategy:**
-  
-  * **Section 1: Data Analytics & SIEM Justification (~250 words)**
-    * Explain your choice of statistical algorithm (e.g., why Isolation Forests or Clustering was ideal for this dataset). 
-    * Contrast the relative merits of manual log inspection versus automated algorithmic anomaly detection within SIEM tools (TKU22 Pass).
-  
-  * **Section 2: Risk Modelling Comparison (Distinction Focus) (~350 words)**
-    * *Crucial for TC15 Distinction:* Explicitly compare and contrast STRIDE and CVSS scoring. 
-    * Explain the differences between the two techniques in terms of their effect on your subsequent risk analysis (TC15 Merit).
-    * Present trade-off arguments in a business case format: Justify specific financial investments in mitigations based on the combined enterprise modelling, illustrating strong commercial and value-for-money judgement.
-  
-  * **Section 3: External Standards & ISMS (~200 words)**
-    * Justify your mitigation roadmap by referencing ISO 27001 or the NIST CSF. Explain the key concepts and benefits of applying this internationally recognized standard to govern the organization's provisioning and access rights (TKU17 Pass).
-  
-  * **Section 4: Intrusion Management & 3rd Party Involvement (~200 words)**
-    * Defend your Incident Response escalation criteria. Explain how to effectively use organizations such as a CERT or external incident response providers, and detail the threshold at which law enforcement must be involved.
+# Exercise 3: Master Document Structure Breakdown
+**Objective:** This document serves as the master structural template for the Exercise 3 End-Point Assessment report. It ensures all Technical Competencies (TC) and Technical Knowledge/Understanding (TKU) requirements are mapped to explicit report headers, guaranteeing the Merit and Distinction criteria are met.
 
 ---
 
-## 4. Document Audit & Supplemental Requirements
+## 1. Security Analytics & Intrusion Detection 
+*(Targeting: TC3, TKU3, TC22, TKU22 - Pass Criteria)*
 
-To fully satisfy the explicit and implicit requirements of this scenario and support your written justification, ensure the following distinct documents are generated and referenced within your Part A/B submission:
+*   **1.1 Big Data Architectures & Database Queries**
+    *   Benefits, limitations, and vulnerabilities of Big Data (Hadoop clusters).
+    *   Database DBMS concepts and Graph Theory application.
+    *   Execution of declarative query language (SQL) to elicit security data.
+*   **1.2 Network Anomaly Detection & SIEM Correlation**
+    *   Inspection of PCAPs and protocol behaviors to identify anomalies and business impact.
+    *   Correlation of SIEM logs, network tools, and **physical security systems** (CCTV/badges).
+    *   Applying statistical techniques to large datasets to find trends/anomalies.
+*   **1.3 Detection Methodologies**
+    *   Comparison: Manual analysis vs. Automated SIEM.
+    *   Comparison: Signature-based anomaly detection vs. Algorithmic (behavioral) detection.
 
-1. **Statistical Analysis & Visualization Report:** The Python/R script, SQL queries, and the rendered anomaly graphs.
-2. **Comparative Risk Model Document:** The formal comparison of STRIDE vs. CVSS applied to the discovered vulnerabilities.
-3. **External Standard Gap Analysis:** The audit of the environment against NIST CSF or ISO 27001.
-4. **ISMS Implementation Plan:** The roadmap outlining mitigation timelines, resource allocation, and prioritization.
-5. **Incident Response & Escalation Policy:** The procedural document defining containment steps and 3rd party communication channels.
+---
+
+## 2. Ethical Reconnaissance & Intelligence Analysis
+*(Targeting: TC14, TKU14 - Pass Criteria)*
+
+*   **2.1 Target Profiling & Attacker Methods**
+    *   Ethical OSINT collection against a defined target.
+    *   Attacker recon methods (Phishing, Insider exploitation, Port scanning, OSINT).
+*   **2.2 Source Provenance & Hypothesis**
+    *   Analysis of multiple, **contradictory** intelligence sources.
+    *   Evaluating source provenance (trustworthiness) and how it affects conclusions.
+    *   Formulating an evidence-based argument mapping typical threat actor actions.
+
+---
+
+## 3. Risk Modelling & Commercial Investment Case [DISTINCTION SECTION]
+*(Targeting: TC15, TKU15 - Pass, Merit, and Distinction Criteria)*
+
+*   **3.1 System Architectural Risk Modelling**
+    *   Defining the enterprise architectural model.
+    *   Application of Technique 1: CVSS Scoring (Quantitative technical severity).
+    *   Application of Technique 2: STRIDE Methodology (Qualitative architectural threats).
+*   **3.2 Comparative Analysis (MERIT Requirement)**
+    *   Direct comparison of CVSS vs. STRIDE capabilities.
+    *   Critical analysis of how selecting one over the other alters the outcome of the risk analysis.
+*   **3.3 Commercial Investment Case (DISTINCTION Requirement)**
+    *   Relating technical cyber risks to wider business/operational risks.
+    *   Cost analysis, risk appetite/tolerance, and trade-off arguments.
+    *   Identifying explicit, costed investment options (e.g., CapEx for Zero Trust architecture vs. OpEx for managed SOC) based on the dual-modelling outcomes.
+
+---
+
+## 4. Cyber Risk Assessment & ISMS Governance
+*(Targeting: TC16, TKU16, TC17, TKU17 - Pass Criteria)*
+
+*   **4.1 External Standard Risk Assessment**
+    *   Conducting a formal risk assessment against ISO 27001/27005.
+    *   Defining qualitative vs. quantitative risk terms and treatment approaches (Mitigate, Transfer, Accept, Avoid).
+    *   Defining the "Risk Owner" role vs. other operational stakeholders.
+*   **4.2 Information Security Management Plan (ISMP)**
+    *   Developing an ISMP supporting organizational SLAs and performance targets.
+*   **4.3 Governance & Access Control Provisioning**
+    *   Role of governance and standards in achieving security outcomes.
+    *   Implementation of Identity and Access Management (IDAM) across: Databases, Applications, and Physical Access Control Systems.
+*   **4.4 External Industry Experts**
+    *   Defining the operational roles and recognition of cyber experts.
+    *   Effective utilization of: CERTs, OSINT Providers, and Incident Response Providers.
+
+---
+
+## 5. Incident Response & 3rd Party Escalation
+*(Targeting: TC23, TKU23 - Pass Criteria)*
+
+*   **5.1 Non-Major Incident Management Lifecycle**
+    *   Managing a local/non-major incident using a defined procedure (NIST SP 800-61 Phases 1-4).
+*   **5.2 Advising on Incident Processes**
+    *   Advising external/junior teams on proper IR workflows.
+    *   Advising on strict evidence collection and preservation requirements for legal proceedings.
+*   **5.3 Communication Matrix**
+    *   Internal: Communicating effectively with the internal IR team.
+    *   External: Communicating securely with the customer and external authorities/regulators.
