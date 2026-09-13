@@ -1,38 +1,45 @@
-### Deliverable D: Incident Response & 3rd Party Escalation
+# Exercise 3: Deliverable D: Incident Response & 3rd Party Escalation
+**Target Competencies:** TC23, TKU23, TKU17 (External Experts)
+**Grading Target:** Pass (Maximum achievable for these specific competencies)
 
-**The Goal:** Manage intrusion response, develop a comprehensive incident response plan, establish communication protocols, and define explicit criteria for escalating incidents to third parties. 
+---
 
-**Required Tools:** Word Processor.
+## 1. Non-Major Incident Management (TC23, TKU23)
+*Goal: Demonstrate the ability to manage localized security events systematically through a complete lifecycle.*
 
-*Note: Technical Competency 22, Technical Competency 23, and Technical Knowledge & Understanding 22 all feature "Pass" criteria in the marking scheme. The focus here is on methodological correlation of evidence, structured incident handling, and clear communication boundaries.*
+### 1.1 Local Response Execution & Defined Procedure
+*   **Defined Procedure:** Manage the local response to a non-major incident (e.g., localized malware on a single endpoint, isolated phishing click) in strict accordance with a defined organizational procedure (NIST SP 800-61).
+*   **Phased Execution:** 
+    *   *Phase 1 & 2 (Preparation, Detection & Analysis):* Identify the localized threat and confirm it has not breached the wider network perimeter. 
+    *   *Phase 3 (Containment & Eradication):* Execute containment steps to isolate the threat and eradicate the malicious artifacts, preventing a non-major incident from escalating.
 
-#### Phase 1: Security Monitoring, Correlation & Impact (Targeting TC22 & TKU22 Pass)
-Before you can respond to an incident, you must formally declare that a breach has occurred based on verifiable evidence.
-*   **Action:** Write a brief Anomaly Correlation Report based on the findings from Deliverable A.
-*   **Execution:** 
-    *   Explicitly state how you integrated and correlated information from various sources (e.g., Wireshark network logs, hypothetical physical security logs, and SIEM alerts) and compared it to known threat data to form a reasoned judgment that a network security breach occurred.
-    *   Characterize the anomaly in terms of its potential impact on the organization (e.g., "The outbound 50GB transfer on Port 443 represents a severe data exfiltration event, threatening customer PII").
-    *   Demonstrate your understanding (TKU22) of how attack techniques manifest in network monitoring tools and explain how you diagnosed the cause from these observables.
+### 1.2 Phase 4: Recovery & Post-Incident Activity
+*   **Recovery Execution:** Safely restore the affected local systems to normal business operations (e.g., restoring from known-good backups, re-enabling network switch ports).
+*   **Post-Incident Review (Lessons Learned):** Conduct a review of the non-major incident to update local defense procedures, adjust SIEM alerting rules, and improve future response times.
 
-#### Phase 2: Incident Response Plan Development (Targeting TC23 Pass)
-You must develop an incident response plan that covers the full lifecycle of a cybersecurity incident.
-*   **Action:** Draft the Incident Response Plan document.
-*   **Execution:** 
-    *   Structure the plan with explicit procedures for detecting, analyzing, containing, eradicating, and recovering from cybersecurity incidents.
-    *   **Roles & Responsibilities:** Identify the specific roles of your team members (e.g., Incident Commander, Network Analyst, Communications Lead) and establish an internal communication protocol for reporting and responding.
-    *   **Local Response:** Include a specific procedural track for managing local response to *non-major* incidents (e.g., a single isolated malware infection) in accordance with defined procedures, proving you know how to handle lower-tier events without over-escalating.
+### 1.3 Advising on Incident Processes & Evidence
+*   **Process Advisement:** Understand and explicitly advise others (e.g., junior staff, IT helpdesk, or non-technical management) on proper cyber incident response processes and incident management workflows.
+*   **Evidence Preservation:** Advise teams on the strict evidence collection and preservation requirements necessary to support formal incident investigation (e.g., halting system reboots to preserve volatile RAM, securing logs before eradication).
 
-#### Phase 3: 3rd Party Escalation & Interaction (Targeting TC23 Pass)
-You must define the exact boundaries of your internal team's capabilities and establish when external help is required.
-*   **Action:** Develop a 3rd Party Escalation Matrix within your IR Plan.
-*   **Execution:** 
-    *   Define explicit criteria for escalating incidents to 3rd parties (e.g., "If data exfiltration involves payment card information, escalate to external PCI forensic investigators within 24 hours").
-    *   Establish specific communication channels with third parties such as law enforcement agencies (e.g., Action Fraud / NCSC in the UK), security vendors, and other stakeholders. 
-    *   Document how your team will interact and communicate effectively with the external incident response teams or customers during a live event.
+---
 
-#### Phase 4: Evidence & Artifact Collection
-*   **Action:** Compile the generated documents to prove your competency in security monitoring correlation and intrusion response management.
-*   **Collection Requirements:**
-    1.  **Anomaly Correlation & Impact Report:** A brief document pulling together the Wireshark/SQL/Python evidence from Deliverable A to formally declare a breach and assess its impact.
-    2.  **Incident Response Plan (IRP):** The comprehensive document detailing the containment, eradication, and recovery phases, along with team member roles.
-    3.  **3rd Party Escalation Matrix:** The specific criteria and communication channels established for interacting with law enforcement, security vendors, and stakeholders.
+## 2. Communication Matrix & Escalation (TC23, TKU23)
+*Goal: Prove effective interaction across internal and external boundaries during an incident.*
+
+### 2.1 Internal Team Interaction
+*   **Internal Communication:** Interact and communicate effectively with the internal incident response team and established IR processes. Detail how technical handovers, ticketing, and situation reports (SITREPs) are managed during active containment and Phase 4 recovery.
+
+### 2.2 External & Customer Communication
+*   **Customer Interaction:** Demonstrate how to communicate effectively with the customer regarding the incident's impact, scope, and remediation timeline.
+*   **External Authorities:** Detail the procedure for interacting with other external authority incident response teams or processes (e.g., notifying regulatory bodies like the ICO, or liaising with merchant banks).
+
+---
+
+## 3. Effective Use of External 3rd Parties (TKU17)
+*Goal: Demonstrate how to integrate industry experts into the operational response.*
+
+### 3.1 Third-Party Integration Strategy
+*   **Expert Roles:** Detail the specific roles of experts in the cyber security industry, how their credentials/expertise are recognized, and the specialized work they perform during an incident.
+*   **CERT Utilization:** Explain how to effectively use a Computer Emergency Response Team (CERT) for early warning threat intelligence, vulnerability advisories, and national-level incident coordination.
+*   **OSINT Provider Utilization:** Detail the use of a commercial OSINT provider to monitor the external attack surface, track compromised credentials, and verify threat actor attribution.
+*   **Incident Response Provider:** Explain the mechanism for engaging a 3rd-party Incident Response provider (e.g., via an IR retainer) for advanced digital forensics, malware reverse engineering, and surge capacity if a non-major incident escalates.
