@@ -1,37 +1,62 @@
-### Deliverable C: ISMS Mitigation & Implementation Plan
+# Exercise 3: Deliverable C: ISMS Mitigation, Incident Response & Intelligence Plan
+**Target Competencies:** TC14, TKU14, TC17, TKU17, TC23, TKU23
+**Grading Target:** Pass (Maximum achievable for these specific competencies)
 
-**The Goal:** Apply a management system and develop a comprehensive information security management plan (ISMS) that includes prioritized recommendations for improving the organization's security posture, complete with timelines, responsibilities, and resource allocations.
+---
 
-**Required Tools:** Word Processor, Project Management Software (Spreadsheet or Gantt Chart tool), ISO/IEC 27001 Framework documentation.
+## 1. Ethical Intelligence Analysis & OSINT Profiling (TC14, TKU14)
+*Goal: Demonstrate the ability to ethically gather intelligence, evaluate source provenance, and form evidence-based hypotheses.*
 
-*Note: Technical Competency 17 and Technical Knowledge & Understanding 17 only feature "Pass" criteria in the marking scheme. The focus here is on demonstrating structured governance, adherence to international standards, and practical implementation planning.*
+### 1.1 Target Reconnaissance & Attacker Methodology
+*   **Ethical Sourcing:** Demonstrate how to source intelligence ethically so that it may be used legally and in compliance with data protection and privacy/human rights.
+*   **Target Profiling:** Use Open-Source Intelligence (OSINT) to profile a defined target (e.g., an organization or specific system) and identify potential vulnerabilities legally.
+*   **Threat Actor Knowledge Building:** Understand and outline the methods a threat actor may use to build knowledge of a system they have limited or no direct access to, explicitly covering:
+    *   Phishing campaigns.
+    *   Exploiting an insider.
+    *   Port scanning.
+    *   Open-source intelligence (OSINT).
 
-#### Phase 1: Mitigation Plan Development (Targeting TC17 Pass)
-You must translate the gaps identified in your external standard assessment (Deliverable B) into actionable security improvements.
-*   **Action:** Draft a formal mitigation plan document.
-*   **Execution:** Explicitly categorize your recommendations into three areas required by the scenario:
-    1.  **Controls to be implemented:** (e.g., Deploying a Security Information and Event Management (SIEM) tool to automate anomaly detection).
-    2.  **Processes to be improved:** (e.g., Enhancing the patch management lifecycle to close vulnerabilities faster).
-    3.  **Policies to be developed or revised:** (e.g., Drafting a strict Access Control Policy to govern database provisioning).
+### 1.2 Evidence Hypothesis & Source Provenance
+*   **Contradictory Sources:** Analyze multiple, *potentially contradictory* sources of information to identify patterns. 
+*   **Evaluating Provenance:** Explicitly consider the provenance (origin, trustworthiness, and context) of these sources and explain how this affects the quality of the evidence, arguments, and conclusions.
+*   **Reasoned Argumentation:** Hypothesize a likely picture of the threat landscape and create a reasoned argument that is fully supported by evidence from the gathered sources. 
+*   **Threat Actor Actions:** Describe how typical threat actors' actions appear in typical sources of information. Demonstrate an eye for detail and strong critical thinking ability.
 
-#### Phase 2: Prioritization & Feasibility Analysis (Targeting TC17 Pass)
-Recommendations cannot simply be a wish list; they must be evaluated for business viability.
-*   **Action:** Create a prioritization matrix.
-*   **Execution:** Rank each of the recommendations developed in Phase 1 based on two specific metrics: **potential impact** (how much risk it reduces) and **feasibility of implementation** (cost, time, and technical difficulty). 
-*   **Documentation:** Clearly state which recommendations are "Quick Wins" (High Impact, High Feasibility) versus "Strategic Projects" (High Impact, Low Feasibility), and justify why the quick wins are scheduled first.
+---
 
-#### Phase 3: Implementation Planning & ISMS Governance (Targeting TC17 & TKU17 Pass)
-You must build the roadmap for deploying these mitigations and explicitly tie them to formal governance structures.
-*   **Action:** Develop the formal ISMS Implementation Plan for the defined business area in accordance with ISO 27001.
-*   **Execution:** 
-    *   **Roadmap:** Create a timeline (e.g., Gantt chart) detailing when each control will be deployed. Assign explicit responsibilities (e.g., "Network Engineering Team") and list the resources required (e.g., "£15,000 budget, 40 man-hours").
-    *   **Governance & SLAs:** Define how the organization will operate according to Service Level Agreements (SLAs) or employer-defined performance targets regarding these new controls.
-    *   **Access Rights (TKU17):** Explain how the organization's new security policies, standards, and governance are supported by provisioning and access rights (e.g., enforcing Identity and Access Management (IDAM) for the new SIEM system).
+## 2. ISMS Implementation & Governance (TC17, TKU17)
+*Goal: Implement the ISO 27001 Information Security Management System, ensuring alignment with organizational policies and SLAs.*
 
-#### Phase 4: Evidence & Artifact Collection
-*   **Action:** Compile the generated governance and planning documents to prove your competency in applying management systems and developing ISMS frameworks.
-*   **Collection Requirements:**
-    1.  **The Mitigation Plan:** A document outlining the specific technical controls, operational processes, and administrative policies to be implemented or revised.
-    2.  **Prioritization Matrix:** A table evaluating the recommendations based on impact and feasibility.
-    3.  **ISMS Implementation Roadmap:** A Gantt chart or detailed timeline containing assigned responsibilities, resource allocations, and SLA definitions.
-    4.  *(Optional but Recommended)* **Governance Summary:** A brief paragraph explicitly stating how this plan aligns with ISO 27001 governance and access control standards to ensure the TKU17 criteria are indisputably met in your Part B write-up.
+### 2.1 Policy Execution & Service Level Agreements
+*   **ISMS Benefits:** Explain the key concepts and benefits of applying an information security management system by reference to an internationally recognized standard (e.g., ISO 27001).
+*   **Policy Adherence:** Identify and strictly follow organizational policies and security management processes for information and cyber security.
+*   **Performance Targets:** Detail how the organization must operate according to specific Service Level Agreements (SLAs) or employer-defined performance targets (e.g., 99.9% uptime, 15-minute incident response times).
+*   **Policy Impact:** Describe how cyber security policies and procedures are used in different organizational environments and how they directly affect individuals and the wider organization.
+
+### 2.2 Governance & Access Control Provisioning
+*   **Governance Integration:** Explain the absolute need for appropriate governance, organizational structure, roles, policies, standards, and guidelines, demonstrating how they work together to deliver identified security outcomes.
+*   **IDAM Implementation:** Detail how the organization’s security policies, standards, and governance are physically supported by provisioning and access rights. You must explicitly cover how identity and access management (IDAM) is implemented and maintained for:
+    *   A database.
+    *   An application.
+    *   A physical access control system.
+
+### 2.3 Integration of Industry Experts & Third Parties
+*   **Role of Experts:** Understand the roles of experts in the cyber security industry, how their expertise is recognized, and the specific work they do.
+*   **Third-Party Utilization:** Detail how the ISMS effectively uses and integrates external organizations, specifically:
+    *   A CERT (Computer Emergency Response Team).
+    *   An OSINT provider.
+    *   An incident response provider.
+
+---
+
+## 3. Intrusion Response Management & Escalation (TC23, TKU23)
+*Goal: Manage non-major incidents, advise on evidence preservation, and execute effective communication strategies.*
+
+### 3.1 Local Incident Management & Evidence Preservation
+*   **Non-Major Incident Response:** Manage the local response to non-major incidents in strict accordance with a defined procedure (e.g., a localized malware infection that has not breached the network perimeter).
+*   **Process Advisement:** Understand and advise others on proper cyber incident response processes and incident management processes.
+*   **Forensic Evidence:** Advise teams on strict evidence collection and preservation requirements necessary to support formal incident investigation.
+
+### 3.2 Communication & Escalation Matrix
+*   **Effective Interaction:** Interact and communicate effectively with the internal incident response team and processes.
+*   **External & Customer Communication:** Demonstrate how to communicate effectively with the customer and/or other external authority incident response teams during an active incident.
