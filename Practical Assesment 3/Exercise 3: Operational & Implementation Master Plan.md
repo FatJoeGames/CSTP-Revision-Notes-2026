@@ -1,107 +1,124 @@
-# Exercise 3: Monitor - Operational & Implementation Master Plan
+# Exercise 3: Operational & Implementation Master Plan
+**Objective:** Operational roadmap for executing the technical analysis, threat intelligence profiling, risk modelling, and governance implementation for Practical Assessment 3.
 
-## 1. Operational Plan Document
+---
 
-**Assessment Strategy:** 
-The objective of this 12-hour practical test is to implement comprehensive monitoring techniques, analyze large network traffic datasets for anomalies using statistical methods, and formalize risk management and incident response frameworks[cite: 5]. To secure Distinction grades, execution must explicitly compare and contrast two distinct risk modelling techniques (e.g., STRIDE vs. CVSS) to justify specific financial investments in security mitigations (TC15)[cite: 5]. The technical build requires setting up a database to house traffic logs and utilizing declarative query languages (SQL) to feed data into Python or R for advanced statistical visualization (TC3)[cite: 5].
+## Phase 1: Data Analytics, SIEM & Data Architecture Setup (TC3, TKU3, TC22, TKU22)
+*Focus: Capturing traffic, querying database structures, and executing correlation analytics.*
 
-**KSB Competency Mapping Table:**
+### 1.1 Technical Execution
+1.  **Traffic Capture & Anomaly Identification:**
+    *   Inspect network packet data structures (PCAPs) and protocol behaviours to identify network anomalies.
+    *   Characterise identified anomalies by evaluating their operational and business impact on enterprise systems.
+2.  **Database Design & SQL Querying:**
+    *   Design and deploy a relational database structure to store relevant security information.
+    *   Execute a declarative query language (e.g., SQL `SELECT`, `JOIN`, `GROUP BY`) to elicit actionable threat analytics from the database.
+    *   Apply **Graph theory** concepts to map information management and relationships.
+3.  **Big Data & Hadoop Evaluation:**
+    *   Analyse the benefits, limitations, and vulnerabilities of 'big data' approaches and architectures.
+    *   Specifically detail components employed in systems for big data, such as a **Hadoop cluster**.
+4.  **SIEM & Multi-Source Correlation:**
+    *   Correlate logs across heterogeneous sources: network monitoring tools, SIEM alerts, access control systems, and **physical security systems**.
+    *   Compare correlated data against known threat and vulnerability data to validate breach judgements based on evidence.
+    *   Document the relative merits of:
+        *   Manual log inspection vs. automated techniques.
+        *   Signature-based anomaly detection vs. algorithmic anomaly detection.
 
-| KSB Code | KSB Description | Practical Task Alignment |
-| :--- | :--- | :--- |
-| **TC3** | Apply statistical techniques to large data sets. | Capturing Wireshark PCAPs, loading into a SQL database, and using Python for clustering/outlier detection[cite: 5]. |
-| **TC14** | Undertake ethical system reconnaissance/intel analysis. | Cleaning dataset errors, identifying anomalies, and considering source provenance in OSINT[cite: 5]. |
-| **TC15** | Undertake risk modelling, analysis, and trades. | Comparing STRIDE vs. CVSS to justify mitigation investments in a business case[cite: 5]. |
-| **TC16** | Undertake risk assessment to an external standard. | Auditing the discovered gaps against the ISO/IEC 27001 or NIST Cybersecurity Framework[cite: 5]. |
-| **TC17** | Apply a management system and ISMS plan. | Drafting timelines, resources, and prioritized remediation plans under ISO 27001[cite: 5]. |
-| **TC22** | Security monitoring, analysis & intrusion detection. | Correlating Wireshark/SIEM alerts to known threats to prove a network breach[cite: 5]. |
-| **TC23** | Manage intrusion response, including with 3rd parties. | Defining IR roles and escalation criteria for CERTs and law enforcement[cite: 5]. |
+---
 
-**Hour-by-Hour Implementation Guide:**
+## Phase 2: OSINT Intelligence Gathering & Source Evaluation (TC14, TKU14)
+*Focus: Profiling the target, evaluating contradictory intelligence, and establishing provenance.*
 
-| Hour | Action Step | Target KSBs | Output Deliverable |
+### 2.1 Intelligence Gathering Workflow
+1.  **Target Profiling:** Conduct legal and ethical Open-source Intelligence (OSINT) reconnaissance to profile the defined target organisation/system and identify potential vulnerabilities.
+2.  **Attacker Reconnaissance Mapping:** Detail how external threat actors build target knowledge using:
+    *   Phishing.
+    *   Exploiting an insider.
+    *   Port scanning.
+    *   Open-source intelligence.
+3.  **Evaluating Provenance & Contradictory Feeds:**
+    *   Analyse multiple, **potentially contradictory** sources of information to identify patterns.
+    *   Critically consider the *provenance* of these sources and document how this affects the quality of the evidence, arguments, and conclusions.
+    *   Formulate a reasoned, evidence-backed hypothesis detailing likely threat actor actions.
+
+---
+
+## Phase 3: System Risk Modelling & Business Investment Case (TC15, TKU15) [DISTINCTION FOCUS]
+*Focus: Performing dual-framework risk modelling, comparing analytical impacts, and building a commercial business case.*
+
+### 3.1 Dual-Model Technical Execution
+1.  **Architectural Composition:** Compose a system architectural model integrated into an enterprise model for the purpose of risk assessment.
+2.  **Model 1 (CVSS Scoring):** Apply CVSS scoring to quantitatively model risks, vulnerabilities, and impacts.
+3.  **Model 2 (STRIDE Threat Modelling):** Map qualitative threats across system trust boundaries using the STRIDE framework.
+
+### 3.2 Comparative Analysis & Commercial Investment Case
+1.  **Methodology Comparison (Merit Requirement):**
+    *   Compare and contrast the two system modelling techniques (CVSS scoring vs. STRIDE).
+    *   Analyse the differences between the two techniques in terms of their effect on any subsequent risk analysis.
+2.  **Business Investment Options (Distinction Requirement):**
+    *   Relate cyber risk to other relevant classes of risk (business and operational risks).
+    *   Incorporate risk economics: balance risk appetite and risk tolerance concepts alongside asset valuation.
+    *   Perform a cost analysis and present trade-off arguments in a business case, illustrating commercial or value for money judgement.
+    *   Ensure options are identified for investment in measures to mitigate cyber risk based on the dual-modelling analysis.
+
+---
+
+## Phase 4: ISO 27001 Risk Assessment & ISMP Deployment (TC16, TKU16, TC17, TKU17)
+*Focus: Executing an external standard risk assessment and formulating an ISMP.*
+
+### 4.1 Assessment & Governance Workflow
+1.  **External Standard Risk Assessment:**
+    *   Conduct a cyber-risk assessment against an externally recognised standard (e.g., ISO 27001) using a recognised methodology.
+    *   Describe risks in qualitative and quantitative terms.
+    *   Understand the role of the **risk owner** and contrast that role with other stakeholders.
+    *   Apply the different ways of treating risk: mitigate, transfer, accept, etc..
+2.  **Information Security Management Plan (ISMP):**
+    *   Develop an ISMP for a defined business area in accordance with ISO 27001.
+    *   Ensure operations align with service level agreements (SLAs) or employer defined performance targets.
+    *   Explain how security policies are supported by provisioning and access rights (IDAM) for:
+        *   A database.
+        *   An application.
+        *   A physical access control system.
+3.  **Third-Party Integration:** Detail operational workflows for effectively using external organisations: a CERT, an OSINT provider, and an incident response provider.
+
+---
+
+## Phase 5: Incident Response & Escalation Management (TC23, TKU23)
+*Focus: Executing non-major incident management, advising teams, and managing communications.*
+
+### 5.1 Incident Management Lifecycle
+1.  **Local Response Execution:** Manage the local response to a non-major incident in accordance with a defined procedure.
+2.  **Advising Teams:** Advise others on cyber incident response processes, incident management processes, and evidence collection/preservation requirements to support incident investigation.
+3.  **Communication Matrix:**
+    *   *Internal:* Interact and communicate effectively with the incident response team/process.
+    *   *External:* Communicate effectively with the customer or other external authority incident response team/process for incidents.
+
+---
+
+## 6. KSB Evidence Mapping Table (Exercise 3)
+*Use this table during the write-up to ensure every competency is explicitly tagged in your final report submission.*
+
+| KSB Code | KSB Description | Practical Alignment / Required Evidence | Status |
 | :--- | :--- | :--- | :--- |
-| **1-2** | Capture live network traffic via Wireshark; export to CSV[cite: 5]. | TC3, TKU22 | Raw PCAP and CSV traffic datasets[cite: 5]. |
-| **3-4** | Set up SQL database, import data, execute declarative queries[cite: 5]. | TC3, TKU3 | SQL Database and extracted query results[cite: 5]. |
-| **5-6** | Python/R analysis: Clean data, run clustering algorithms, generate charts[cite: 5]. | TC3, TC14 | Data visualizations and anomaly report[cite: 5]. |
-| **7-8** | Develop Risk Models: Compare STRIDE vs. CVSS and analyze trades[cite: 5]. | TC15, TKU15 | Comparative Risk Model Document[cite: 5]. |
-| **9** | Perform Risk Assessment against ISO 27001 / NIST CSF[cite: 5]. | TC16, TKU16 | External Standard Audit Report[cite: 5]. |
-| **10** | Draft ISMS Implementation Plan (Timelines, resources, priorities)[cite: 5]. | TC17, TKU17 | ISMS Mitigation Plan[cite: 5]. |
-| **11** | Draft Incident Response Plan (Containment, 3rd party escalation)[cite: 5]. | TC23, TKU15 | Incident Response & Escalation Policy[cite: 5]. |
-| **12** | Documentation: Collate code, graphs, and finalize Part A & Part B[cite: 5]. | TC15 (Distinction) | Completed 1000-word written justification[cite: 5]. |
+| **TC3 / TKU3** | Big Data, Statistics & Database Concepts | Execute a declarative query language, analyse Hadoop architecture/graph theory, and apply statistical techniques to large data sets. | [ ] |
+| **TC14 / TKU14** | Ethical OSINT & Intelligence Analysis | Profile target via OSINT, consider provenance of contradictory sources, and hypothesise a likely picture based on evidence. | [ ] |
+| **TC15 / TKU15** | Risk Modelling & Business Trades *(Distinction)* | Compare two models (CVSS vs. STRIDE). Evaluate effect on risk analysis. Identify investment options based on cost analysis/trade-offs. | [ ] |
+| **TC16 / TKU16** | Risk Assessment to External Standard | Conduct assessment to external standard. Use qualitative/quantitative terms. Define Risk Owner vs. other stakeholders. | [ ] |
+| **TC17 / TKU17** | ISMS, Governance & External Standards | Develop an ISMP. Document IDAM for DB, App, and physical systems. Define use of CERTs, OSINT, and IR providers. | [ ] |
+| **TC22 / TKU22** | SIEM, Anomaly & Intrusion Detection | Inspect PCAPs. Correlate SIEM, network, and physical security logs. Compare signature vs. algorithmic anomaly detection. | [ ] |
+| **TC23 / TKU23** | Incident Response & Communication | Manage local non-major incident. Advise others on evidence preservation. Communicate with internal team, customers, and external authorities. | [ ] |
 
 ---
 
-## 2. Deliverable Execution Plans
+## 7. Hour-by-Hour Execution Schedule
+*This schedule assumes a standard 7-hour assessment window (plus lunch). Adjust timestamps based on your actual start time.*
 
-### Deliverable A: Traffic Capture, Database & Statistical Analysis
-* **Overview & Goal:** Capture network traffic, ingest it into a relational database, and apply Python-based statistical techniques (clustering/outliers) to identify anomalies[cite: 5].
-* **Tools & Software Required:** Wireshark, SQLite/PostgreSQL, Python (Pandas, Scikit-learn, Matplotlib).
-* **Technical Step-by-Step Breakdown:**
-  1. Use Wireshark to capture traffic on the network designed in Exercise 1[cite: 5]. Export the capture as a CSV file.
-  2. Create an SQLite database. Design a schema to hold the traffic data (Source IP, Dest IP, Port, Protocol, Bytes)[cite: 5].
-  3. Import the CSV into the database and write a declarative SQL query to extract top talkers or anomalous port activity[cite: 5].
-  4. Write a Python script to ingest the SQL output, clean the data (drop nulls), and apply K-Means clustering or Isolation Forests to automatically flag outliers[cite: 5].
-  5. Generate a scatter plot visualizing the anomalous traffic cluster[cite: 5].
-* **Code, Scripts & Configurations:**
-  ```python
-  import sqlite3
-  import pandas as pd
-  import matplotlib.pyplot as plt
-  from sklearn.ensemble import IsolationForest
-
-  # 1. Declarative Query to elicit information (TC3 Pass requirement)
-  conn = sqlite3.connect('network_traffic.db')
-  query = "SELECT src_ip, dest_port, bytes_transferred FROM traffic_logs WHERE bytes_transferred > 0"
-  df = pd.read_sql_query(query, conn)
-
-  # 2. Data Cleaning & Pre-processing
-  df.dropna(inplace=True)
-
-  # 3. Statistical Anomaly Detection (Outlier Detection)
-  model = IsolationForest(contamination=0.01)
-  df['anomaly'] = model.fit_predict(df[['bytes_transferred']])
-
-  # 4. Visualization
-  anomalies = df[df['anomaly'] == -1]
-  plt.scatter(df['dest_port'], df['bytes_transferred'], c=df['anomaly'], cmap='coolwarm')
-  plt.title('Network Traffic Anomaly Detection (Isolation Forest)')
-  plt.xlabel('Destination Port')
-  plt.ylabel('Bytes Transferred')
-  plt.savefig('anomaly_chart.png')
-  ```
-* **Evidence & Artifact Collection:** Wireshark PCAP screenshot, SQLite schema definition, Python script source code, and the exported `anomaly_chart.png` graph[cite: 5].
-
----
-
-### Deliverable B: Risk Modelling & External Standard Assessment
-* **Overview & Goal:** Evaluate vulnerabilities identified via the traffic analysis, explicitly comparing two risk modelling techniques to justify investment in mitigations, audited against NIST/ISO 27001[cite: 5].
-* **Tools & Software Required:** Spreadsheet Software, NIST CSF / ISO 27001 Framework documentation.
-* **Technical Step-by-Step Breakdown:**
-  1. Document the vulnerabilities exposed by the anomalies (e.g., cleartext protocols, large unexpected data exfiltration)[cite: 5].
-  2. **Distinction Requirement:** Perform a risk analysis using *both* CVSS (quantitative scoring of the technical flaw) and STRIDE (qualitative architectural threat modeling)[cite: 5].
-  3. Compare the two models: Note how CVSS focuses on the technical severity, while STRIDE highlights the business architecture impact[cite: 5].
-  4. Assess the existing infrastructure against ISO 27001 Annex A controls, identifying gaps where current defenses failed to stop the observed anomalies[cite: 5].
-* **Evidence & Artifact Collection:** STRIDE vs. CVSS comparison table, Risk Analysis matrix (Likelihood x Impact), and the External Standard Gap Analysis document[cite: 5].
-
----
-
-### Deliverable C: ISMS Mitigation & Implementation Plan
-* **Overview & Goal:** Develop a prioritized Information Security Management System (ISMS) implementation plan to close the gaps identified in Deliverable B[cite: 5].
-* **Tools & Software Required:** Project Management format (Gantt Chart or structured table).
-* **Technical Step-by-Step Breakdown:**
-  1. Define the specific controls to be implemented (e.g., deploying a SIEM, enforcing TLS 1.3)[cite: 5].
-  2. Prioritize recommendations based on commercial value-for-money judgements and feasibility[cite: 5].
-  3. Draft an implementation roadmap detailing timelines (e.g., Q1, Q2), assigned responsibilities (e.g., Network Admin, SecOps), and required resources[cite: 5].
-* **Evidence & Artifact Collection:** ISMS Mitigation Plan table detailing controls, priorities, resources, and timelines[cite: 5].
-
----
-
-### Deliverable D: Incident Response & 3rd Party Escalation
-* **Overview & Goal:** Manage the intrusion response process, defining containment procedures and establishing strict protocols for 3rd party involvement[cite: 5].
-* **Tools & Software Required:** Word Processor.
-* **Technical Step-by-Step Breakdown:**
-  1. Draft a formal Incident Response Plan using the PICERL phases (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) customized for the anomalies discovered in Deliverable A[cite: 5].
-  2. Map internal team roles and communication protocols[cite: 5].
-  3. Explicitly define criteria for escalating the incident to 3rd parties (e.g., "If data exfiltration exceeds 500MB of PII, immediately notify the ICO and external forensics vendors")[cite: 5].
-* **Evidence & Artifact Collection:** Written Incident Response Plan with a dedicated 3rd Party Communication & Escalation matrix[cite: 5].
+| Time Window | Operational Phase | Key Deliverables & Actions | Target KSBs |
+| :--- | :--- | :--- | :--- |
+| **09:00 - 10:30** | Phase 1: Data Analytics & SIEM | Extract PCAPs, execute SQL database queries, and correlate physical/network logs. Draft algorithmic vs. signature analysis. | TC3, TKU3, TC22, TKU22 |
+| **10:30 - 11:30** | Phase 2: OSINT & Intelligence | Run ethical reconnaissance. Profile threat actor methods (phishing, insider, etc.). Document provenance of contradictory intelligence. | TC14, TKU14 |
+| **11:30 - 13:00** | Phase 3: Dual Risk Modelling | **(Distinction Sprint)** Run STRIDE and CVSS models. Draft comparative analysis and identify costed investment mitigation options. | TC15, TKU15 |
+| **13:00 - 13:30** | *Lunch Break* | *Step away from the screen. Hydrate and reset.* | - |
+| **13:30 - 15:00** | Phase 4: ISO 27001 & ISMP | Execute formal risk assessment. Define Risk Owner. Document IDAM integration across DB/App/Physical. Detail CERT/IR use. | TC16, TKU16, TC17, TKU17 |
+| **15:00 - 16:15** | Phase 5: Incident Response | Write up non-major incident procedure. Draft advisory notes on RAM/evidence preservation. Map internal/external communications. | TC23, TKU23 |
+| **16:15 - 17:00** | Review & KSB Tagging | Cross-reference report against the KSB table. Ensure explicit headers match the grading matrix precisely. | All |
