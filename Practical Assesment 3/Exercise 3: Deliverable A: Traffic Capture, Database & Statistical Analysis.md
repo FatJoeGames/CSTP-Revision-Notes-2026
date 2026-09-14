@@ -63,24 +63,33 @@ Here is your exact execution playbook and the scripts to run for Deliverable A.
 1. Network Traffic Inspection (TC22, TKU22)
 The Execution: Do not waste time manually scrolling through Wireshark. Open your terminal and use tshark to instantly parse the provided PCAP file and extract the protocol anomalies.
 The Script:
+
 # 1. Spot Malware Beacons: Extract and count all HTTP User-Agents
 tshark -r capture.pcap -T fields -e http.user_agent | sort | uniq -c | sort -nr | head -n 10
 
 # 2. Spot DNS Tunneling: Find abnormally long DNS queries
+
 tshark -r capture.pcap -Y "dns.qry.name" -T fields -e dns.qry.name | awk '{ if (length($1) > 50) print $1 }'
 
 # 3. Spot Cleartext Credentials: Extract HTTP POST request payloads
+
 tshark -r capture.pcap -Y "http.request.method == POST" -T fields -e text
 
 Write-up Action: Paste the terminal output into your report. State that by inspecting network packet data structures, you identified anomalous protocol behaviors (e.g., a suspicious User-Agent or DNS exfiltration) that signature-based tools missed.
+
 2. Database Creation & SQL Correlation (TC3, TC22)
 The Execution: You must demonstrate the use of a declarative query language to correlate logical SIEM logs with physical security systems. You can use DB Browser for SQLite or a quick MySQL instance in your lab to execute this.
 The Script:
+
 -- Step 1: Design the database structure
+
+```bash
 CREATE TABLE network_logs (timestamp DATETIME, username VARCHAR(50), source_ip VARCHAR(15), status VARCHAR(10));
 CREATE TABLE physical_access (last_swipe_time DATETIME, username VARCHAR(50), location VARCHAR(50));
+```
 
 -- Step 2: The Correlation Query ("Impossible Access")
+```bash
 SELECT 
     n.timestamp, 
     n.username, 
@@ -95,10 +104,13 @@ WHERE
     n.status = 'SUCCESS'
     AND n.source_ip LIKE '192.168.%'
     AND (p.last_swipe_time IS NULL OR p.last_swipe_time < datetime(n.timestamp, '-12 hours'));
+```
 
 Write-up Action: Export the query result. Explain that this SQL script successfully correlated heterogeneous sources by proving a user successfully authenticated to the internal network despite having no physical CCTV or badge swipe records for the building.
+
 3. Statistical Security Analytics (TKU3, TKU22)
 The Execution: To satisfy the "Big Data" and "Algorithmic Detection" requirements, run this Python script against a large CSV log file (e.g., a firewall or proxy log).
+
 The Script:
 import pandas as pd
 from scipy import stats
